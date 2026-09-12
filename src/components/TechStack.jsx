@@ -21,6 +21,7 @@ const ICON_MAP = {
   git: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
 };
 
+
 const container = { hidden: {}, show: { transition: { staggerChildren: 0.06 } } };
 const item = {
   hidden: { opacity: 0, y: 20 },

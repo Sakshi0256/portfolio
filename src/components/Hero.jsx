@@ -9,6 +9,8 @@ import {
   Zap,
   MoveUpRight,
 } from "lucide-react";
+import Magnetic from "./Magnetic.jsx";
+import AnimatedNumber from "./AnimatedNumber.jsx";
 
 const container = {
   hidden: {},
@@ -102,39 +104,53 @@ export default function Hero() {
           </motion.p>
 
           <motion.div variants={fadeUp} className="flex gap-3 flex-wrap pt-1">
-            <button className="btn-primary" onClick={() => scrollTo("projects")}>
-              View My Work <ArrowRight size={18} />
-            </button>
-            <button className="btn-ghost" onClick={() => scrollTo("contact")}>
-              Let's Connect <MoveUpRight size={18} />
-            </button>
+            <Magnetic>
+              <button className="btn-primary" onClick={() => scrollTo("projects")}>
+                View My Work <ArrowRight size={18} />
+              </button>
+            </Magnetic>
+            <Magnetic>
+              <button className="btn-ghost" onClick={() => scrollTo("contact")}>
+                Let's Connect <MoveUpRight size={18} />
+              </button>
+            </Magnetic>
           </motion.div>
 
-          <motion.div
-            variants={fadeUp}
-            className="flex items-center gap-5 md:gap-6 pt-6 mt-2 border-t border-line flex-wrap"
-          >
-            <div>
-              <div className="text-[26px] font-extrabold tracking-tight text-ink">1+</div>
-              <div className="text-[12.5px] text-muted max-w-[130px] leading-tight">
-                Year Professional Experience
-              </div>
-            </div>
-            <div className="hidden md:block w-px h-10 bg-line" />
-            <div>
-              <div className="text-[26px] font-extrabold tracking-tight text-ink">10+</div>
-              <div className="text-[12.5px] text-muted max-w-[130px] leading-tight">
-                Projects Built
-              </div>
-            </div>
-            <div className="hidden md:block w-px h-10 bg-line" />
-            <div>
-              <div className="text-[26px] font-extrabold tracking-tight text-ink">3</div>
-              <div className="text-[12.5px] text-muted max-w-[130px] leading-tight">
-                Core Development Domains
-              </div>
-            </div>
-          </motion.div>
+         <motion.div
+  variants={fadeUp}
+  className="flex items-center gap-5 md:gap-6 pt-6 mt-2 border-t border-line flex-wrap"
+>
+  <div>
+    <div className="text-[26px] font-extrabold tracking-tight text-ink">
+      <AnimatedNumber value={1} suffix="+" />
+    </div>
+    <div className="text-[12.5px] text-muted max-w-[130px] leading-tight">
+      Year Professional Experience
+    </div>
+  </div>
+
+  <div className="hidden md:block w-px h-10 bg-line" />
+
+  <div>
+    <div className="text-[26px] font-extrabold tracking-tight text-ink">
+      <AnimatedNumber value={10} suffix="+" />
+    </div>
+    <div className="text-[12.5px] text-muted max-w-[130px] leading-tight">
+      Projects Built
+    </div>
+  </div>
+
+  <div className="hidden md:block w-px h-10 bg-line" />
+
+  <div>
+    <div className="text-[26px] font-extrabold tracking-tight text-ink">
+      <AnimatedNumber value={3} />
+    </div>
+    <div className="text-[12.5px] text-muted max-w-[130px] leading-tight">
+      Core Development Domains
+    </div>
+  </div>
+</motion.div>
         </motion.div>
 
         {/* RIGHT */}
@@ -191,7 +207,7 @@ export default function Hero() {
               <span className="ml-auto text-[11px] text-white/45 font-mono">sakshi.dev</span>
             </div>
             <pre className="font-mono text-[10px] md:text-[11.5px] leading-[1.7] text-[#e7d9ff] whitespace-pre m-0">
-{`const developer = {
+              {`const developer = {
   name: "Sakshi Mishra",
   stack: ["RN", "Node"],
   focus: "real products"
