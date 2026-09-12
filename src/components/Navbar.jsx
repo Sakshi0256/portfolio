@@ -67,7 +67,7 @@ function GithubDropdown({ open, setOpen }) {
             exit={{ opacity: 0, y: 6, scale: 0.97 }}
             transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
             role="menu"
-            className="absolute right-0 top-full mt-2 w-64 bg-white border border-line rounded-2xl shadow-[0_20px_50px_rgba(237,67,137,0.16)] p-2 z-50"
+            className="absolute right-0 top-full mt-2 w-64 bg-white border border-line rounded-2xl shadow-[0_20px_50px_rgba(24,24,27,,0.16)] p-2 z-50"
           >
             <p className="px-3 pt-2 pb-1.5 text-[10px] tracking-[0.18em] uppercase text-muted font-semibold">
               GitHub Accounts
@@ -139,7 +139,7 @@ export default function Navbar() {
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 border-b transition-all duration-300 ${
         scrolled
-          ? "bg-white/75 backdrop-blur-xl border-line shadow-[0_8px_30px_rgba(237,67,137,0.05)]"
+          ? "bg-white/75 backdrop-blur-xl border-line shadow-[0_8px_30px_rgba(24,24,27,,0.05)]"
           : "bg-transparent border-transparent"
       }`}
     >

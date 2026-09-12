@@ -10,7 +10,7 @@ const COMPANY_PROJECTS = [
     description:
       "Built and shipped a cross-platform mobile app in React Native with dynamic, date-driven leaderboard components. Backed by a mediator/API-gateway layer routing across multiple services.",
     tech: ["React Native", "Node.js", "MongoDB", "MySQL"],
-    bg: "from-[#fff8fb] to-[#fff0f6]",
+    bg: "from-[#f4f4f5] to-[#f4f4f5]",
   },
 
   {
@@ -20,7 +20,7 @@ const COMPANY_PROJECTS = [
     description:
       "Built and shipped a cross-platform mobile app in React Native with dynamic, date-driven leaderboard components. Backed by a mediator/API-gateway layer routing across multiple services.",
     tech: ["React Native", "Node.js",  "MySQL"],
-    bg: "from-[#fff8fb] to-[#fff0f6]",
+    bg: "from-[#f4f4f5] to-[#f4f4f5]",
   },
 
   {
@@ -30,7 +30,7 @@ const COMPANY_PROJECTS = [
     description:
       "A real-time healthcare communication experience for doctor-patient messaging with secure authentication, reusable components, and smooth state synchronization for sensitive healthcare data.",
     tech: ["React.js", "Real-time", "JWT", "Node.js"],
-    bg: "from-[#fff8fb] to-[#ffe1ee]",
+    bg: "from-[#f4f4f5] to-[#e4e4e7]",
   },
   {
     number: "04",
@@ -39,7 +39,7 @@ const COMPANY_PROJECTS = [
     description:
       "An end-to-end resident platform covering visitor management, complaints, notice board, secure payments, real-time push notifications, and an admin dashboard.",
     tech: ["React Native", "Firebase", "REST API", "Push Notifications"],
-    bg: "from-white to-[#fff0f6]",
+    bg: "from-white to-[#f4f4f5]",
   },
   {
     number: "05",
@@ -48,7 +48,7 @@ const COMPANY_PROJECTS = [
     description:
       "A medical application built with secure authentication and reusable components, designed to handle sensitive healthcare data reliably across devices.",
     tech: ["React Native", "Node.js", "JWT", "MongoDB"],
-    bg: "from-white to-[#fff8fb]",
+    bg: "from-white to-[#f4f4f5]",
   },
 ];
 
@@ -61,7 +61,7 @@ const PERSONAL_PROJECTS = [
     description:
       "A full-stack healthcare content management app with secure JWT authentication and an admin panel. Real-time APIs sync data instantly between the admin panel and the user-facing app.",
     tech: ["React Native", "Node.js", "MySQL"],
-    bg: "from-[#fff8fb] to-[#fff0f6]",
+    bg: "from-[#f4f4f5] to-[#f4f4f5]",
   },
  
   {
@@ -71,7 +71,7 @@ const PERSONAL_PROJECTS = [
     description:
       "Dynamic question rendering with score tracking, built for smooth quiz sessions across devices.",
     tech: ["React Native", "Firebase"],
-    bg: "from-[#fff8fb] to-[#fff0f6]",
+    bg: "from-[#f4f4f5] to-[#f4f4f5]",
   },
   {
     number: "03",
@@ -80,7 +80,7 @@ const PERSONAL_PROJECTS = [
     description:
       "Real-time location tracking with instant alert notifications for emergency situations.",
     tech: ["React Native", "REST API", "Location"],
-    bg: "from-white to-[#fff0f6]",
+    bg: "from-white to-[#f4f4f5]",
   },
   {
     number: "04",
@@ -89,7 +89,7 @@ const PERSONAL_PROJECTS = [
     description:
       "Live forecast data via third-party weather API integration with a clean, minimal interface.",
     tech: ["React Native", "REST API"],
-    bg: "from-[#fff8fb] to-[#ffe1ee]",
+    bg: "from-[#f4f4f5] to-[#e4e4e7]",
   },
 ];
 
@@ -97,7 +97,7 @@ const PERSONAL_PROJECTS = [
 function ProjectCard({ project, index, total }) {
   return (
     <motion.article
-      className={`group grid md:grid-cols-2 gap-10 items-center p-8 md:p-10 rounded-[36px] border border-line bg-gradient-to-br ${project.bg} transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_24px_60px_rgba(237,67,137,0.16)] overflow-hidden`}
+      className={`group grid md:grid-cols-2 gap-10 items-center p-8 md:p-10 rounded-[36px] border border-line bg-gradient-to-br ${project.bg} transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_24px_60px_rgba(24,24,27,,0.16)] overflow-hidden`}
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
@@ -135,7 +135,7 @@ function ProjectCard({ project, index, total }) {
       </div>
 
       <div className={`flex flex-col items-center gap-3 ${index % 2 === 1 ? "md:order-1" : ""}`}>
-        <div className="w-full max-w-[380px] bg-white rounded-[20px] border border-line shadow-[0_20px_50px_rgba(237,67,137,0.12)] overflow-hidden -rotate-3 transition-all duration-500 group-hover:rotate-0 group-hover:scale-[1.03] group-hover:shadow-[0_30px_70px_rgba(237,67,137,0.22)]">
+        <div className="w-full max-w-[380px] bg-white rounded-[20px] border border-line shadow-[0_20px_50px_rgba(24,24,27,,0.12)] overflow-hidden -rotate-3 transition-all duration-500 group-hover:rotate-0 group-hover:scale-[1.03] group-hover:shadow-[0_30px_70px_rgba(24,24,27,,0.22)]">
           <div className="flex gap-1.5 px-3.5 py-3 bg-white border-b border-line">
             <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]" />
             <span className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />

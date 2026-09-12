@@ -72,8 +72,8 @@ export default function Experience() {
               viewport={{ once: true, amount: 0.25 }}
               transition={{ duration: 0.6, delay: i * 0.15, ease: [0.22, 1, 0.36, 1] }}
             >
-              <span className="absolute -left-8 top-6 w-4.5 h-4.5 w-[18px] h-[18px] rounded-full bg-white border-[3px] border-pink-500 shadow-[0_0_0_6px_rgba(237,67,137,0.1)]" />
-              <div className="bg-white border border-line rounded-[28px] p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_40px_rgba(237,67,137,0.1)]">
+              <span className="absolute -left-8 top-6 w-4.5 h-4.5 w-[18px] h-[18px] rounded-full bg-white border-[3px] border-pink-500 shadow-[0_0_0_6px_rgba(24,24,27,,0.1)]" />
+              <div className="bg-white border border-line rounded-[28px] p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_40px_rgba(24,24,27,,0.1)]">
                 <div className="flex justify-between items-start gap-4 mb-4 flex-wrap">
                   <div>
                     <h3 className="text-[19px] font-bold tracking-[-0.01em] text-ink">

@@ -52,7 +52,7 @@ export default function TechStack() {
           <motion.div
             key={`${t.name}-${i}`}
             variants={item}
-            className="group flex flex-col items-center justify-center gap-2.5 py-5 px-3 rounded-[20px] bg-white border border-line transition-all duration-300 hover:-translate-y-1.5 hover:bg-pink-50 hover:border-pink-200 hover:shadow-[0_10px_40px_rgba(237,67,137,0.1)]"
+            className="group flex flex-col items-center justify-center gap-2.5 py-5 px-3 rounded-[20px] bg-white border border-line transition-all duration-300 hover:-translate-y-1.5 hover:bg-pink-50 hover:border-pink-200 hover:shadow-[0_10px_40px_rgba(24,24,27,,0.1)]"
           >
             <img
               src={ICON_MAP[t.slug]}

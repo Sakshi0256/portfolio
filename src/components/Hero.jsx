@@ -70,7 +70,7 @@ export default function Hero() {
         <motion.div variants={container} initial="hidden" animate="show" className="space-y-5">
           <motion.div
             variants={fadeUp}
-            className="inline-flex items-center gap-2 px-3.5 py-2 bg-white border border-line rounded-full text-[12.5px] font-medium text-muted w-fit shadow-[0_4px_16px_rgba(237,67,137,0.06)]"
+            className="inline-flex items-center gap-2 px-3.5 py-2 bg-white border border-line rounded-full text-[12.5px] font-medium text-muted w-fit shadow-[0_4px_16px_rgba(24,24,27,,0.06)]"
           >
             <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
             Available for Opportunities
@@ -160,7 +160,7 @@ export default function Hero() {
             className="absolute inset-[8%_4%_6%_6%] rounded-full blur-3xl"
             style={{
               background:
-                "radial-gradient(circle at 55% 45%, rgba(255,118,170,0.42), transparent 62%)",
+                "radial-gradient(circle at 55% 45%, rgba(24,24,27,0.42), transparent 62%)",
             }}
             animate={{ scale: [1, 1.08, 1], opacity: [0.65, 0.9, 0.65] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
@@ -187,14 +187,14 @@ export default function Hero() {
               className="w-full h-full object-cover object-top rounded-[220px_220px_40px_40px] bg-pink-50"
               style={{
                 boxShadow:
-                  "0 30px 60px -20px rgba(237,67,137,0.35), 0 0 0 10px rgba(255,255,255,0.85), 0 0 0 11px #ffe1ee",
+                  "0 30px 60px -20px rgba(24,24,27,,0.35), 0 0 0 10px rgba(255,255,255,0.85), 0 0 0 11px #e4e4e7",
               }}
             />
           </motion.div>
 
           {/* Code card */}
           <motion.div
-            className="absolute top-[34%] -left-2 md:-left-[6%] w-[210px] md:w-[240px] z-[4] bg-[#1a1620] rounded-2xl p-3 md:p-3.5 border border-white/[0.06] shadow-[0_24px_60px_rgba(237,67,137,0.16)]"
+            className="absolute top-[34%] -left-2 md:-left-[6%] w-[210px] md:w-[240px] z-[4] bg-[#1a1620] rounded-2xl p-3 md:p-3.5 border border-white/[0.06] shadow-[0_24px_60px_rgba(24,24,27,,0.16)]"
             initial={{ opacity: 0, x: -60, rotate: -8 }}
             animate={{ opacity: 1, x: 0, rotate: -6 }}
             transition={{ duration: 0.9, delay: 0.75, ease: [0.22, 1, 0.36, 1] }}
@@ -206,7 +206,7 @@ export default function Hero() {
               <span className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
               <span className="ml-auto text-[11px] text-white/45 font-mono">sakshi.dev</span>
             </div>
-            <pre className="font-mono text-[10px] md:text-[11.5px] leading-[1.7] text-[#e7d9ff] whitespace-pre m-0">
+            <pre className="font-mono text-[10px] md:text-[11.5px] leading-[1.7] text-[#e4e4e7] whitespace-pre m-0">
               {`const developer = {
   name: "Sakshi Mishra",
   stack: ["RN", "Node"],
@@ -217,7 +217,7 @@ export default function Hero() {
 
           {/* Feature card */}
           <motion.div
-            className="absolute -right-1 md:-right-[8%] bottom-[4%] w-[200px] md:w-[240px] z-[4] bg-white/75 backdrop-blur-xl border border-white/90 rounded-[20px] p-3 md:p-4 shadow-[0_24px_60px_rgba(237,67,137,0.16)]"
+            className="absolute -right-1 md:-right-[8%] bottom-[4%] w-[200px] md:w-[240px] z-[4] bg-white/75 backdrop-blur-xl border border-white/90 rounded-[20px] p-3 md:p-4 shadow-[0_24px_60px_rgba(24,24,27,,0.16)]"
             initial={{ opacity: 0, x: 60 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.9, delay: 0.95, ease: [0.22, 1, 0.36, 1] }}
@@ -242,14 +242,14 @@ export default function Hero() {
           </motion.div>
 
           <motion.span
-            className="absolute top-[10%] right-[4%] z-[3] px-3.5 py-2 bg-white border border-line rounded-full text-[12px] font-semibold text-ink shadow-[0_10px_40px_rgba(237,67,137,0.1)]"
+            className="absolute top-[10%] right-[4%] z-[3] px-3.5 py-2 bg-white border border-line rounded-full text-[12px] font-semibold text-ink shadow-[0_10px_40px_rgba(24,24,27,,0.1)]"
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
           >
             React Native
           </motion.span>
           <motion.span
-            className="absolute bottom-[12%] left-[2%] z-[3] px-3.5 py-2 bg-white border border-line rounded-full text-[12px] font-semibold text-ink shadow-[0_10px_40px_rgba(237,67,137,0.1)]"
+            className="absolute bottom-[12%] left-[2%] z-[3] px-3.5 py-2 bg-white border border-line rounded-full text-[12px] font-semibold text-ink shadow-[0_10px_40px_rgba(24,24,27,,0.1)]"
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
           >

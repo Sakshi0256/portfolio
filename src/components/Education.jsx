@@ -52,7 +52,7 @@ export default function Education() {
             {EDU.map((e, i) => (
               <motion.div
                 key={e.degree}
-                className="flex gap-4 p-5.5 p-[22px] bg-white border border-line rounded-[20px] text-pink-500 transition-all duration-300 hover:-translate-y-1 hover:border-pink-200 hover:shadow-[0_10px_40px_rgba(237,67,137,0.1)]"
+                className="flex gap-4 p-5.5 p-[22px] bg-white border border-line rounded-[20px] text-pink-500 transition-all duration-300 hover:-translate-y-1 hover:border-pink-200 hover:shadow-[0_10px_40px_rgba(24,24,27,,0.1)]"
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.4 }}
@@ -96,7 +96,7 @@ export default function Education() {
             {CERTS.map((c, i) => (
               <motion.div
                 key={c}
-                className="flex gap-4 p-5.5 p-[22px] bg-white border border-line rounded-[20px] text-pink-500 transition-all duration-300 hover:-translate-y-1 hover:border-pink-200 hover:shadow-[0_10px_40px_rgba(237,67,137,0.1)]"
+                className="flex gap-4 p-5.5 p-[22px] bg-white border border-line rounded-[20px] text-pink-500 transition-all duration-300 hover:-translate-y-1 hover:border-pink-200 hover:shadow-[0_10px_40px_rgba(24,24,27,,0.1)]"
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.4 }}

@@ -17,10 +17,10 @@ export default function Contact() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.25 }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        className="relative overflow-hidden text-center px-6 py-16 md:px-10 md:py-20 rounded-[36px] border border-line bg-gradient-to-br from-[#fff8fb] to-[#ffe1ee]"
+        className="relative overflow-hidden text-center px-6 py-16 md:px-10 md:py-20 rounded-[36px] border border-line bg-gradient-to-br from-[#f4f4f5] to-[#e4e4e7]"
       >
-        <div className="pointer-events-none absolute -top-32 -left-20 w-80 h-80 rounded-full bg-[radial-gradient(circle,rgba(255,118,170,0.35),transparent_70%)]" />
-        <div className="pointer-events-none absolute -bottom-24 -right-16 w-72 h-72 rounded-full bg-[radial-gradient(circle,rgba(255,118,170,0.35),transparent_70%)]" />
+        <div className="pointer-events-none absolute -top-32 -left-20 w-80 h-80 rounded-full bg-[radial-gradient(circle,rgba(24,24,27,0.35),transparent_70%)]" />
+        <div className="pointer-events-none absolute -bottom-24 -right-16 w-72 h-72 rounded-full bg-[radial-gradient(circle,rgba(24,24,27,0.35),transparent_70%)]" />
 
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

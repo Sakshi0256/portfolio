@@ -12,7 +12,7 @@ export default function Marquee({ items, speed = 30, reverse = false }) {
         {doubled.map((item, i) => (
           <div
             key={i}
-            className="flex items-center gap-3 px-5 py-3 rounded-2xl bg-white border border-line shadow-[0_4px_16px_rgba(237,67,137,0.06)] whitespace-nowrap"
+            className="flex items-center gap-3 px-5 py-3 rounded-2xl bg-white border border-line shadow-[0_4px_16px_rgba(24,24,27,,0.06)] whitespace-nowrap"
           >
             {item}
           </div>

@@ -51,7 +51,7 @@ function CursorGlow() {
       }`}
       style={{
         background:
-          "radial-gradient(circle, rgba(255,118,170,0.18), rgba(255,118,170,0) 65%)",
+          "radial-gradient(circle, rgba(24,24,27,0.18), rgba(24,24,27,0) 65%)",
       }}
     />
   );
@@ -61,9 +61,9 @@ function CursorGlow() {
 function GradientMesh() {
   return (
     <div aria-hidden className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
-      <div className="absolute -top-40 -left-40 w-[700px] h-[700px] rounded-full bg-[radial-gradient(circle,rgba(255,118,170,0.28),transparent_65%)] blur-3xl" />
-      <div className="absolute top-1/3 -right-40 w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle,rgba(255,196,220,0.35),transparent_65%)] blur-3xl" />
-      <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] rounded-full bg-[radial-gradient(circle,rgba(237,67,137,0.18),transparent_65%)] blur-3xl" />
+      <div className="absolute -top-40 -left-40 w-[700px] h-[700px] rounded-full bg-[radial-gradient(circle,rgba(24,24,27,0.28),transparent_65%)] blur-3xl" />
+      <div className="absolute top-1/3 -right-40 w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle,rgba(161,161,170,0.35),transparent_65%)] blur-3xl" />
+      <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] rounded-full bg-[radial-gradient(circle,rgba(24,24,27,,0.18),transparent_65%)] blur-3xl" />
     </div>
   );
 }
