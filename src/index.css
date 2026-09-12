@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&family=Playfair+Display:ital,wght@1,400;1,500;1,600;1,700&display=swap");
+
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Playfair Display", serif;
+
+  --color-bg: #ffffff;
+  --color-bg-soft: #fff8fb;
+  --color-pink-50: #fff0f6;
+  --color-pink-100: #ffe1ee;
+  --color-pink-200: #ffc4dc;
+  --color-pink-300: #ff9ec5;
+  --color-pink-400: #ff76aa;
+  --color-pink-500: #ed4389;
+  --color-ink: #17141a;
+  --color-muted: #68606a;
+  --color-line: #f0dce6;
+
+  --shadow-soft: 0 4px 16px rgba(237, 67, 137, 0.06);
+  --shadow-pink: 0 10px 40px rgba(237, 67, 137, 0.10);
+  --shadow-pink-lg: 0 24px 60px rgba(237, 67, 137, 0.16);
+
+  --animate-spin-slow: spin 40s linear infinite;
+  --animate-spin-slow-rev: spin 55s linear infinite reverse;
+  --animate-pulse-dot: pulseDot 2s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% { box-shadow: 0 0 0 4px rgba(52, 199, 89, 0.18); }
+  50%      { box-shadow: 0 0 0 8px rgba(52, 199, 89, 0.04); }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-bg text-ink font-sans antialiased overflow-x-hidden;
+  }
+
+  ::selection {
+    background: var(--color-pink-500);
+    color: white;
+  }
+}
+
+@layer components {
+  .section-wrap {
+    @apply w-full max-w-[1240px] mx-auto px-5 sm:px-8 py-20 md:py-28 relative;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full
+           font-semibold text-[15px] text-white whitespace-nowrap
+           bg-gradient-to-br from-pink-500 to-pink-400
+           shadow-[0_12px_30px_rgba(237,67,137,0.28)]
+           transition-all duration-300
+           hover:-translate-y-0.5 hover:shadow-[0_18px_40px_rgba(237,67,137,0.38)];
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full
+           font-semibold text-[15px] whitespace-nowrap
+           bg-white text-ink border border-line
+           shadow-[0_4px_16px_rgba(237,67,137,0.06)]
+           transition-all duration-300
+           hover:-translate-y-0.5 hover:border-pink-200
+           hover:shadow-[0_14px_32px_rgba(237,67,137,0.14)];
+  }
+
+  .eyebrow {
+    @apply text-[12px] tracking-[0.22em] uppercase text-pink-500 font-semibold mb-4;
+  }
+
+  .title-h2 {
+    @apply text-[clamp(30px,4.2vw,52px)] font-extrabold leading-[1.08]
+           tracking-[-0.02em] text-ink mb-6;
+  }
+
+  .italic-pink {
+    @apply font-serif italic font-medium text-pink-500;
+  }
+
+  .tech-pill {
+    @apply px-3 py-1.5 bg-white border border-line rounded-full
+           text-[12px] font-medium text-muted;
+  }
+}
