@@ -33,15 +33,15 @@ const GROUPS = [
       { name: "Jupyter", slug: "jupyter" },
     ],
   },
-  {
-    label: "DevOps & Cloud",
-    techs: [
-      { name: "Docker", slug: "docker" },
-      { name: "Hostinger", slug: "hostinger" },
-      { name: "DigitalOcean", slug: "digitalocean" },
-      // { name: "AWS", slug: "amazonwebservices" }, // will add later
-    ],
-  },
+  // {
+  //   label: "DevOps & Cloud",
+  //   techs: [
+  //     { name: "Docker", slug: "docker" },
+  //     { name: "Hostinger", slug: "hostinger" },
+  //     { name: "DigitalOcean", slug: "digitalocean" },
+  //     // { name: "AWS", slug: "amazonwebservices" }, // will add later
+  //   ],
+  // },
   {
     label: "Tools",
     techs: [
