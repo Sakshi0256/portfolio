@@ -8,176 +8,224 @@ import {
   Database,
   Zap,
   MoveUpRight,
+  MapPin,
+  Star,
 } from "lucide-react";
 import Magnetic from "./Magnetic.jsx";
 import AnimatedNumber from "./AnimatedNumber.jsx";
 
 const container = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.12, delayChildren: 0.15 } },
+  show: { transition: { staggerChildren: 0.08, delayChildren: 0.15 } },
 };
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 0, y: 20 },
   show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
 };
 
+/* Split text into words, animate each word as a masked slide */
+function SplitLine({ children, className = "", delay = 0 }) {
+  const words = String(children).split(" ");
+  return (
+    <span className={`inline-flex flex-wrap ${className}`}>
+      {words.map((word, i) => (
+        <span key={i} className="inline-block overflow-hidden mr-[0.28em] pb-[0.05em]">
+          <motion.span
+            className="inline-block"
+            initial={{ y: "110%" }}
+            animate={{ y: "0%" }}
+            transition={{
+              duration: 0.9,
+              delay: delay + i * 0.08,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+          >
+            {word}
+          </motion.span>
+        </span>
+      ))}
+    </span>
+  );
+}
+
 const features = [
-  { Icon: Code2, title: "Clean Code", sub: "Better Products" },
-  { Icon: Smartphone, title: "Mobile Apps", sub: "Beautiful UI/UX" },
-  { Icon: Server, title: "Backend", sub: "Scalable APIs" },
-  { Icon: Database, title: "Database", sub: "MongoDB | MySQL" },
-  { Icon: Zap, title: "Real-time", sub: "Live Experiences" },
+  { Icon: Code2, title: "Clean Code", sub: "better products" },
+  { Icon: Smartphone, title: "Mobile Apps", sub: "beautiful UI/UX" },
+  { Icon: Server, title: "Backend", sub: "scalable APIs" },
+  { Icon: Database, title: "Database", sub: "MongoDB · MySQL" },
+  { Icon: Zap, title: "Real-time", sub: "live experiences" },
 ];
 
 export default function Hero() {
   const scrollTo = (id) =>
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
 
-  const particles = [
-    "top-[12%] left-[8%]",
-    "top-[30%] left-[45%]",
-    "top-[60%] left-[20%]",
-    "top-[80%] left-[55%]",
-    "top-[20%] right-[15%]",
-    "top-[70%] right-[25%]",
-    "bottom-[15%] left-[35%]",
-    "bottom-[25%] right-[8%]",
-  ];
-
   return (
     <section
       id="home"
-      className="relative w-full max-w-[1240px] mx-auto px-5 sm:px-8 pt-32 md:pt-40 pb-20 md:pb-28 min-h-screen flex items-center"
+      className="relative w-full max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 pt-28 md:pt-36 pb-24 md:pb-32 min-h-screen flex items-center"
     >
-      <div className="absolute inset-0 pointer-events-none">
-        {[...Array(8)].map((_, i) => (
-          <motion.span
-            key={i}
-            className={`absolute w-1.5 h-1.5 rounded-full bg-pink-400 opacity-50 ${particles[i]}`}
-            animate={{
-              y: [0, -18, 0],
-              x: [0, i % 2 === 0 ? 8 : -8, 0],
-              opacity: [0.4, 0.9, 0.4],
-            }}
-            transition={{ duration: 6 + i, repeat: Infinity, ease: "easeInOut", delay: i * 0.4 }}
-          />
-        ))}
-      </div>
+      {/* Ticker strip at top of hero */}
+      <motion.div
+        initial={{ opacity: 0, y: -12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4, duration: 0.7 }}
+        className="absolute top-24 md:top-28 left-0 right-0 overflow-hidden pointer-events-none"
+      >
+        <div className="flex gap-8 whitespace-nowrap text-[11px] uppercase tracking-[0.3em] text-zinc-400">
+          <div className="flex gap-8 animate-marquee">
+            {[...Array(2)].map((_, k) => (
+              <div key={k} className="flex gap-8 items-center">
+                {[
+                  "AVAILABLE FOR FREELANCE",
+                  "★",
+                  "REACT NATIVE · NODE.JS",
+                  "★",
+                  "SHIPPING REAL PRODUCTS",
+                  "★",
+                  "BASED IN MAHARASHTRA, INDIA",
+                  "★",
+                ].map((t, i) => (
+                  <span key={i} className="flex items-center gap-8">
+                    {t}
+                  </span>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      </motion.div>
 
-      <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-16 items-center w-full">
+      <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-12 lg:gap-16 items-center w-full mt-16">
         {/* LEFT */}
-        <motion.div variants={container} initial="hidden" animate="show" className="space-y-5">
-          <motion.div
-            variants={fadeUp}
-            className="inline-flex items-center gap-2 px-3.5 py-2 bg-white border border-line rounded-full text-[12.5px] font-medium text-muted w-fit shadow-[0_4px_16px_rgba(24,24,27,,0.06)]"
-          >
-            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-            Available for Opportunities
+        <motion.div variants={container} initial="hidden" animate="show" className="space-y-6">
+          {/* Sticker row */}
+          <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-2.5">
+            <span className="inline-flex items-center gap-2 px-3.5 py-2 bg-white border border-zinc-200 rounded-full text-[12px] font-medium text-zinc-600 shadow-[0_4px_16px_rgba(30,64,245,0.08)]">
+              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+              open to work
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-pink-500 text-white rounded-full text-[12px] font-semibold shadow-[0_6px_20px_rgba(30,64,245,0.35)] rotate-[-3deg]">
+              <Sparkles size={12} /> 1+ yr shipping
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-white border border-zinc-200 rounded-full text-[12px] font-medium text-zinc-600 rotate-[2deg]">
+              <MapPin size={12} /> Maharashtra
+            </span>
           </motion.div>
 
           <motion.p
             variants={fadeUp}
-            className="text-[12px] tracking-[0.22em] uppercase text-pink-500 font-semibold"
+            className="text-[11px] tracking-[0.3em] uppercase text-zinc-400 font-semibold"
           >
             Full-Stack Mobile &amp; Web Developer
           </motion.p>
 
-          <motion.h1
-            variants={fadeUp}
-            className="text-[clamp(40px,6.2vw,78px)] font-extrabold leading-[0.98] tracking-[-0.035em] text-ink"
-          >
-            I BUILD
-            <br />
-            <span className="font-serif italic font-medium text-pink-500">DIGITAL PRODUCTS</span>
-            <br />
-            THAT SHIP.
-          </motion.h1>
+          {/* Headline — kinetic split lines */}
+          <h1 className="text-[clamp(40px,6.5vw,92px)] font-extrabold leading-[0.95] tracking-[-0.04em] text-zinc-900">
+            <SplitLine delay={0.1}>I build</SplitLine>
+            <span className="block">
+              <SplitLine
+                delay={0.3}
+                className="font-serif italic font-medium text-pink-500"
+              >
+                digital products
+              </SplitLine>
+            </span>
+            <span className="block">
+            
+            </span>
+          </h1>
 
           <motion.p
             variants={fadeUp}
-            className="text-[16.5px] text-muted max-w-[540px] leading-[1.7]"
+            className="text-[15.5px] text-zinc-500 max-w-[500px] leading-[1.75]"
           >
-            Full-Stack Mobile &amp; Web Developer specializing in React Native, Node.js and
-            scalable backend systems. I turn ideas into real-world applications with clean
-            code, beautiful interfaces and a focus on real impact.
+            Hey — I'm Sakshi. I ship cross-platform apps and backend systems that real
+            people actually use. React Native on the front, Node.js on the back,{" "}
+            <span className="text-zinc-900 font-semibold">zero fluff in between.</span>
           </motion.p>
 
+          {/* CTAs */}
           <motion.div variants={fadeUp} className="flex gap-3 flex-wrap pt-1">
             <Magnetic>
               <button className="btn-primary" onClick={() => scrollTo("projects")}>
-                View My Work <ArrowRight size={18} />
+                see my work <ArrowRight size={17} />
               </button>
             </Magnetic>
             <Magnetic>
               <button className="btn-ghost" onClick={() => scrollTo("contact")}>
-                Let's Connect <MoveUpRight size={18} />
+                say hi <MoveUpRight size={17} />
               </button>
             </Magnetic>
           </motion.div>
 
-         <motion.div
-  variants={fadeUp}
-  className="flex items-center gap-5 md:gap-6 pt-6 mt-2 border-t border-line flex-wrap"
->
-  <div>
-    <div className="text-[26px] font-extrabold tracking-tight text-ink">
-      <AnimatedNumber value={1} suffix="+" />
-    </div>
-    <div className="text-[12.5px] text-muted max-w-[130px] leading-tight">
-      Year Professional Experience
-    </div>
-  </div>
-
-  <div className="hidden md:block w-px h-10 bg-line" />
-
-  <div>
-    <div className="text-[26px] font-extrabold tracking-tight text-ink">
-      <AnimatedNumber value={10} suffix="+" />
-    </div>
-    <div className="text-[12.5px] text-muted max-w-[130px] leading-tight">
-      Projects Built
-    </div>
-  </div>
-
-  <div className="hidden md:block w-px h-10 bg-line" />
-
-  <div>
-    <div className="text-[26px] font-extrabold tracking-tight text-ink">
-      <AnimatedNumber value={3} />
-    </div>
-    <div className="text-[12.5px] text-muted max-w-[130px] leading-tight">
-      Core Development Domains
-    </div>
-  </div>
-</motion.div>
+          {/* Stats — sticker card */}
+          <motion.div
+            variants={fadeUp}
+            className="relative mt-8 p-5 rounded-[24px] bg-white border border-zinc-200 shadow-[0_10px_40px_rgba(30,64,245,0.06)]"
+          >
+            <div className="absolute -top-2.5 left-6 px-2.5 py-0.5 bg-zinc-900 text-white text-[10px] rounded-full tracking-[0.15em] uppercase font-semibold">
+              quick stats
+            </div>
+            <div className="flex items-center gap-6 flex-wrap pt-2">
+              <div>
+                <div className="text-[30px] font-extrabold tracking-tight text-zinc-900">
+                  <AnimatedNumber value={1} suffix="+" />
+                </div>
+                <div className="text-[10.5px] text-zinc-400 uppercase tracking-[0.12em] mt-1">
+                  years shipping
+                </div>
+              </div>
+              <div className="w-px h-10 bg-zinc-200" />
+              <div>
+                <div className="text-[30px] font-extrabold tracking-tight text-zinc-900">
+                  <AnimatedNumber value={10} suffix="+" />
+                </div>
+                <div className="text-[10.5px] text-zinc-400 uppercase tracking-[0.12em] mt-1">
+                  projects built
+                </div>
+              </div>
+              <div className="w-px h-10 bg-zinc-200" />
+              <div>
+                <div className="text-[30px] font-extrabold tracking-tight text-pink-500">
+                  <AnimatedNumber value={3} />
+                </div>
+                <div className="text-[10.5px] text-zinc-400 uppercase tracking-[0.12em] mt-1">
+                  core domains
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </motion.div>
 
-        {/* RIGHT */}
-        <div className="relative min-h-[460px] md:min-h-[560px] flex items-center justify-center">
+        {/* RIGHT — portrait + floating bits */}
+        <div className="relative min-h-[440px] sm:min-h-[520px] md:min-h-[600px] py-12 md:py-0 flex items-center justify-center">
+          {/* Aura */}
           <motion.div
             aria-hidden
             className="absolute inset-[8%_4%_6%_6%] rounded-full blur-3xl"
             style={{
               background:
-                "radial-gradient(circle at 55% 45%, rgba(24,24,27,0.42), transparent 62%)",
+                "radial-gradient(circle at 55% 45%, rgba(30,64,245,0.28), transparent 62%)",
             }}
-            animate={{ scale: [1, 1.08, 1], opacity: [0.65, 0.9, 0.65] }}
+            animate={{ scale: [1, 1.08, 1], opacity: [0.6, 0.9, 0.6] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
           />
           <div
             aria-hidden
-            className="absolute top-[12%] right-[8%] w-[380px] h-[380px] rounded-full border border-dashed border-pink-300/60 animate-[spin_40s_linear_infinite]"
+            className="absolute top-[10%] right-[6%] w-[340px] h-[340px] rounded-full border border-dashed border-pink-300/70 animate-[spin_40s_linear_infinite]"
           />
           <div
             aria-hidden
-            className="absolute bottom-[6%] left-[4%] w-[260px] h-[260px] rounded-full border border-dashed border-pink-300/60 animate-[spin_55s_linear_infinite_reverse]"
+            className="absolute bottom-[8%] left-[6%] w-[240px] h-[240px] rounded-full border border-dashed border-pink-200 animate-[spin_55s_linear_infinite_reverse]"
           />
 
+          {/* Portrait */}
           <motion.div
-            className="relative z-[2] w-[min(420px,90%)] aspect-[4/5] mt-14"
-            initial={{ opacity: 0, y: 60 }}
-            animate={{ opacity: 1, y: 0 }}
+           className="relative z-[2] w-[min(320px,85%)] md:w-[min(420px,90%)] aspect-[4/5]"
+            initial={{ opacity: 0, y: 60, rotate: -2 }}
+            animate={{ opacity: 1, y: 0, rotate: 0 }}
             transition={{ duration: 1, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
           >
             <img
@@ -187,74 +235,84 @@ export default function Hero() {
               className="w-full h-full object-cover object-top rounded-[220px_220px_40px_40px] bg-pink-50"
               style={{
                 boxShadow:
-                  "0 30px 60px -20px rgba(24,24,27,,0.35), 0 0 0 10px rgba(255,255,255,0.85), 0 0 0 11px #e4e4e7",
+                  "0 30px 60px -20px rgba(30,64,245,0.30), 0 0 0 10px rgba(255,255,255,0.95), 0 0 0 11px #dce7ff",
               }}
             />
           </motion.div>
 
           {/* Code card */}
           <motion.div
-            className="absolute top-[34%] -left-2 md:-left-[6%] w-[210px] md:w-[240px] z-[4] bg-[#1a1620] rounded-2xl p-3 md:p-3.5 border border-white/[0.06] shadow-[0_24px_60px_rgba(24,24,27,,0.16)]"
+            className="absolute -top-6 -left-6 md:top-[36%] md:-left-[8%] w-[180px] md:w-[240px] z-[4] bg-[#0a0a0a] rounded-2xl p-3 md:p-3.5 border border-white/[0.1] shadow-[0_24px_60px_rgba(0,0,0,0.4)]"
             initial={{ opacity: 0, x: -60, rotate: -8 }}
             animate={{ opacity: 1, x: 0, rotate: -6 }}
             transition={{ duration: 0.9, delay: 0.75, ease: [0.22, 1, 0.36, 1] }}
-            whileHover={{ rotate: 0, y: -6, scale: 1.03 }}
+            whileHover={{ rotate: 0, y: -6, scale: 1.04 }}
           >
             <div className="flex items-center gap-1.5 mb-2.5 pb-2 border-b border-white/[0.08]">
               <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]" />
               <span className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
               <span className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
-              <span className="ml-auto text-[11px] text-white/45 font-mono">sakshi.dev</span>
+              <span className="ml-auto text-[10px] text-white/45 font-mono">sakshi.dev</span>
             </div>
-            <pre className="font-mono text-[10px] md:text-[11.5px] leading-[1.7] text-[#e4e4e7] whitespace-pre m-0">
-              {`const developer = {
-  name: "Sakshi Mishra",
+            <pre className="font-mono text-[10px] md:text-[11px] leading-[1.7] text-[#dce7ff] whitespace-pre m-0">
+{`const dev = {
+  name: "Sakshi",
   stack: ["RN", "Node"],
-  focus: "real products"
+  vibe: "shipping ✨"
 };`}
             </pre>
           </motion.div>
 
           {/* Feature card */}
           <motion.div
-            className="absolute -right-1 md:-right-[8%] bottom-[4%] w-[200px] md:w-[240px] z-[4] bg-white/75 backdrop-blur-xl border border-white/90 rounded-[20px] p-3 md:p-4 shadow-[0_24px_60px_rgba(24,24,27,,0.16)]"
-            initial={{ opacity: 0, x: 60 }}
-            animate={{ opacity: 1, x: 0 }}
+            className="absolute -right-6 md:-right-[8%] -bottom-8 md:bottom-[2%] w-[180px] md:w-[230px] z-[4] bg-white/90 backdrop-blur-xl border border-zinc-200 rounded-[22px] p-3.5 md:p-4 shadow-[0_24px_60px_rgba(0,0,0,0.14)]"
+            initial={{ opacity: 0, x: 60, rotate: 4 }}
+            animate={{ opacity: 1, x: 0, rotate: 2 }}
             transition={{ duration: 0.9, delay: 0.95, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="flex items-center gap-2 text-[12px] font-semibold text-pink-500 mb-3 tracking-wide">
-              <Sparkles size={16} />
-              <span>What I do</span>
+            <div className="flex items-center gap-2 text-[10.5px] font-bold text-pink-500 mb-3 tracking-[0.14em] uppercase">
+              <Star size={12} fill="currentColor" />
+              <span>what I do</span>
             </div>
-            <ul className="flex flex-col gap-1.5 md:gap-2.5">
+            <ul className="flex flex-col gap-2">
               {features.map(({ Icon, title, sub }) => (
-                <li key={title} className="flex items-start gap-2.5 text-pink-500">
-                  <Icon size={14} className="flex-shrink-0 mt-[3px]" />
+                <li key={title} className="flex items-start gap-2.5">
+                  <span className="w-6 h-6 rounded-full bg-pink-50 text-pink-500 grid place-items-center flex-shrink-0 mt-0.5">
+                    <Icon size={12} />
+                  </span>
                   <div className="flex flex-col leading-tight">
-                    <strong className="text-[11.5px] md:text-[12.5px] text-ink font-bold">
-                      {title}
-                    </strong>
-                    <span className="text-[10.5px] md:text-[11.5px] text-muted">{sub}</span>
+                    <strong className="text-[11.5px] text-zinc-900 font-bold">{title}</strong>
+                    <span className="text-[10px] text-zinc-400">{sub}</span>
                   </div>
                 </li>
               ))}
             </ul>
           </motion.div>
 
+          {/* Floating pills */}
           <motion.span
-            className="absolute top-[10%] right-[4%] z-[3] px-3.5 py-2 bg-white border border-line rounded-full text-[12px] font-semibold text-ink shadow-[0_10px_40px_rgba(24,24,27,,0.1)]"
+            className="absolute top-[8%] right-0 md:top-[42%] md:right-[2%] z-[3] px-3 py-1.5 bg-zinc-900 text-white rounded-full text-[10px] font-bold uppercase tracking-[0.14em]"
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
           >
-            React Native
+            react native
           </motion.span>
           <motion.span
-            className="absolute bottom-[12%] left-[2%] z-[3] px-3.5 py-2 bg-white border border-line rounded-full text-[12px] font-semibold text-ink shadow-[0_10px_40px_rgba(24,24,27,,0.1)]"
+            className="absolute bottom-[4%] left-0 md:bottom-[16%] md:left-[2%] z-[3] px-3 py-1.5 bg-white border border-zinc-300 rounded-full text-[10px] font-bold text-zinc-900 uppercase tracking-[0.14em]"
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
           >
-            Node.js
+            node.js
           </motion.span>
+
+          {/* Scroll hint */}
+          <motion.div
+            className="absolute -bottom-4 left-1/2 -translate-x-1/2 text-[10px] uppercase tracking-[0.3em] text-zinc-400 font-semibold"
+            animate={{ y: [0, 6, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          >
+            ↓ scroll
+          </motion.div>
         </div>
       </div>
     </section>
