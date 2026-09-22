@@ -98,44 +98,44 @@ export default function Hero() {
 
       <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-12 lg:gap-16 items-center w-full mt-16">
         {/* LEFT */}
-        <motion.div variants={container} initial="hidden" animate="show" className="space-y-6">
-          {/* Sticker row */}
-          <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-2.5">
-            <span className="inline-flex items-center gap-2 px-3.5 py-2 bg-white border border-zinc-200 rounded-full text-[12px] font-medium text-zinc-600 shadow-[0_4px_16px_rgba(30,64,245,0.08)]">
-              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-              open to work
-            </span>
-            <span className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-pink-500 text-white rounded-full text-[12px] font-semibold shadow-[0_6px_20px_rgba(30,64,245,0.35)] rotate-[-3deg]">
-              <Sparkles size={12} /> 1+ yr shipping
-            </span>
-            <span className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-white border border-zinc-200 rounded-full text-[12px] font-medium text-zinc-600 rotate-[2deg]">
-              <MapPin size={12} /> Maharashtra
-            </span>
-          </motion.div>
+        <motion.div variants={container} initial="hidden" animate="show" className="space-y-5">
+  {/* Eyebrow first */}
+  <motion.p
+    variants={fadeUp}
+    className="text-[10.5px] md:text-[11px] tracking-[0.3em] uppercase text-zinc-400 font-semibold"
+  >
+    Full-Stack Mobile &amp; Web Developer
+  </motion.p>
 
-          <motion.p
-            variants={fadeUp}
-            className="text-[11px] tracking-[0.3em] uppercase text-zinc-400 font-semibold"
-          >
-            Full-Stack Mobile &amp; Web Developer
-          </motion.p>
+  {/* Sticker row */}
+  <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-2.5">
+    <span className="inline-flex items-center gap-2 px-3.5 py-2 bg-white border border-zinc-200 rounded-full text-[12px] font-medium text-zinc-600 shadow-[0_4px_16px_rgba(0,0,0,0.06)]">
+      <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+      open to work
+    </span>
+    <span className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-zinc-900 text-white rounded-full text-[12px] font-semibold shadow-[0_6px_20px_rgba(0,0,0,0.28)] rotate-[-3deg]">
+      <Sparkles size={12} /> 1+ yr shipping
+    </span>
+    <span className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-white border border-zinc-200 rounded-full text-[12px] font-medium text-zinc-600 rotate-[2deg]">
+      <MapPin size={12} /> Maharashtra
+    </span>
+  </motion.div>
 
-          {/* Headline — kinetic split lines */}
-          <h1 className="text-[clamp(40px,6.5vw,92px)] font-extrabold leading-[0.95] tracking-[-0.04em] text-zinc-900">
-            <SplitLine delay={0.1}>I build</SplitLine>
-            <span className="block">
-              <SplitLine
-                delay={0.3}
-                className="font-serif italic font-medium text-pink-500"
-              >
-                digital products
-              </SplitLine>
-            </span>
-            <span className="block">
-            
-            </span>
-          </h1>
-
+  {/* Headline */}
+  <h1 className="text-[clamp(38px,6.2vw,88px)] font-extrabold leading-[0.95] tracking-[-0.04em] text-zinc-900 pt-1">
+    <SplitLine delay={0.1}>I build</SplitLine>
+    <span className="block">
+      <SplitLine
+        delay={0.3}
+        className="font-serif italic font-medium text-zinc-900"
+      >
+        digital products
+      </SplitLine>
+    </span>
+    <span className="block">
+      <SplitLine delay={0.55}>that ship.</SplitLine>
+    </span>
+  </h1>
           <motion.p
             variants={fadeUp}
             className="text-[15.5px] text-zinc-500 max-w-[500px] leading-[1.75]"

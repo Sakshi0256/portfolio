@@ -25,6 +25,12 @@
   --animate-spin-slow: spin 40s linear infinite;
   --animate-spin-slow-rev: spin 55s linear infinite reverse;
   --animate-pulse-dot: pulseDot 2s ease-in-out infinite;
+  --animate-marquee: marquee 40s linear infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
 @keyframes pulseDot {
