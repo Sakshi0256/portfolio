@@ -67,35 +67,34 @@ export default function Hero() {
       className="relative w-full max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 pt-28 md:pt-36 pb-24 md:pb-32 min-h-screen flex items-center"
     >
       {/* Ticker strip at top of hero */}
-      <motion.div
-        initial={{ opacity: 0, y: -12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.4, duration: 0.7 }}
-        className="absolute top-24 md:top-28 left-0 right-0 overflow-hidden pointer-events-none"
-      >
-        <div className="flex gap-8 whitespace-nowrap text-[11px] uppercase tracking-[0.3em] text-zinc-400">
-          <div className="flex gap-8 animate-marquee">
-            {[...Array(2)].map((_, k) => (
-              <div key={k} className="flex gap-8 items-center">
-                {[
-                  "AVAILABLE FOR FREELANCE",
-                  "★",
-                  "REACT NATIVE · NODE.JS",
-                  "★",
-                  "SHIPPING REAL PRODUCTS",
-                  "★",
-                  "BASED IN MAHARASHTRA, INDIA",
-                  "★",
-                ].map((t, i) => (
-                  <span key={i} className="flex items-center gap-8">
-                    {t}
-                  </span>
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
-      </motion.div>
+     {/* Ticker strip at top of hero */}
+<motion.div
+  initial={{ opacity: 0, y: -12 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.4, duration: 0.7 }}
+  className="absolute top-20 md:top-28 left-0 right-0 overflow-hidden pointer-events-none select-none"
+  style={{
+    maskImage:
+      "linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)",
+    WebkitMaskImage:
+      "linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)",
+  }}
+>
+  <div className="flex whitespace-nowrap text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-zinc-400 animate-marquee">
+    {[...Array(4)].map((_, k) => (
+      <div key={k} className="flex items-center gap-6 md:gap-8 pr-6 md:pr-8">
+        <span>available for freelance</span>
+        <span className="text-zinc-900">★</span>
+        <span>react native · node.js</span>
+        <span className="text-zinc-900">★</span>
+        <span>shipping real products</span>
+        <span className="text-zinc-900">★</span>
+        <span>based in maharashtra, india</span>
+        <span className="text-zinc-900">★</span>
+      </div>
+    ))}
+  </div>
+</motion.div>
 
       <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-12 lg:gap-16 items-center w-full mt-16">
         {/* LEFT */}

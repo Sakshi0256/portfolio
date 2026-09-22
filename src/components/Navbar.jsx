@@ -144,12 +144,14 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-[1240px] mx-auto px-5 md:px-8 py-3 md:py-4 flex items-center gap-8">
-        <button onClick={() => scrollTo("home")} className="flex items-baseline gap-2.5">
-          <span className="font-extrabold text-[22px] tracking-tight text-ink">SM.</span>
-          <span className="hidden sm:inline text-[13px] text-muted font-medium">
-            Sakshi Mishra
-          </span>
-        </button>
+       <button onClick={() => scrollTo("home")} className="flex items-baseline gap-2.5">
+  <span className="font-extrabold text-[20px] md:text-[22px] tracking-tight text-ink">
+    Sakshi Mishra
+  </span>
+  <span className="hidden md:inline text-[12px] text-muted font-medium">
+    · Full-Stack Dev
+  </span>
+</button>
 
         <nav className="hidden lg:flex items-center gap-1 ml-auto">
           {LINKS.map((link) => (
